@@ -23,7 +23,7 @@ productsController.insertProducts = async (req, res) => {
 
 // DELETE
 productsController.deleteProducts = async (req, res) => {
-    await productsModel.findByIdAndDelete(req.parms.id)
+    await productsModel.findByIdAndDelete(req.params.id)
     res.json({message: "Products deleted"})
 }
 
@@ -31,7 +31,7 @@ productsController.deleteProducts = async (req, res) => {
 
 productsController.updateProducts = async (req, res) => {
     const { name, description, price, stock } = req.body
-    const updateProducts = await productsModel.findByIdAndUpdate(req.parms.id, 
+    const updateProducts = await productsModel.findByIdAndUpdate(req.params.id, 
         {name, description, price, stock }, 
         {new:true}
     );
